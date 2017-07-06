@@ -430,6 +430,11 @@ public class CommandLine {
       if !arg.hasPrefix(ShortOptionPrefix) {
         continue
       }
+        
+      if strays[idx].isEmpty {
+        // It has already been claimed by another arg.
+        continue
+      }
       
       let skipChars = arg.hasPrefix(LongOptionPrefix) ?
         LongOptionPrefix.characters.count : ShortOptionPrefix.characters.count
